@@ -1,0 +1,74 @@
+package kalkulatorrmi;
+
+import java.rmi.Naming;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author yuxufaax
+ */
+public class Client {
+    public static void main(String[] args)throws NotBoundException,MalformedURLException,RemoteException{
+        Scanner sc = new Scanner(System.in);
+        
+        try {
+            KalkulatorInterface c = (KalkulatorInterface)Naming.lookup("rmi://localhost:1197/Calculator");
+            System.out.println("Client terkoneksi server");
+            System.out.println("Silahkan pilih perintah \n" 
+                    +"1. +\n"
+                    +"2. -\n"
+                    +"3. X\n"
+                    +"4. ./. \n");
+            System.out.println("\nPILIH : ");
+            int choice = sc.nextInt();
+        int x,y;
+        switch (choice)
+        {
+            case 1:
+            {
+                System.out.println("nilai pertama");
+                x=sc.nextInt();
+                System.out.println("nilai ke kedua");
+                y=sc.nextInt();
+                System.out.println(c.add(x, y));
+                break;
+            }
+            case 2:
+            {
+                System.out.println("nilai pertama");
+                x=sc.nextInt();
+                System.out.println("nilai ke kedua");
+                y=sc.nextInt();
+                System.out.println(c.sub(x, y));
+                break;
+            }
+            case 3:
+            {
+                System.out.println("nilai pertama");
+                x=sc.nextInt();
+                System.out.println("nilai ke kedua");
+                y=sc.nextInt();
+                System.out.println(c.mul(x, y));
+                break;
+            }
+            case 4:
+            {
+                System.out.println("nilai pertama");
+                x=sc.nextInt();
+                System.out.println("nilai ke kedua");
+                y=sc.nextInt();
+                System.out.println(c.add(x, y));
+                break;
+            }
+            
+        }
+            
+        } catch (Exception e) {
+        }
+        
+    }
+}

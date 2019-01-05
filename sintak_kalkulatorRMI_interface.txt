@@ -1,0 +1,17 @@
+
+package kalkulatorrmi;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+/**
+ *
+ * @author yuxufaax
+ */
+public interface KalkulatorInterface extends Remote { //pembuatan remot
+    public int add(int x, int y)throws RemoteException; //tambah
+    public int sub(int x, int y)throws RemoteException; //kurang
+    public int mul(int x, int y)throws RemoteException; //kali
+    public int div(int x, int y)throws RemoteException; //bagi
+  
+}
